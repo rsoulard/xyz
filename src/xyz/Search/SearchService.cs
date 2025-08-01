@@ -40,7 +40,7 @@ internal class SearchService(SearchOptions options)
             if (searchPattern.IsMatch(nameValue))
             {
                 var fullPath = path.Reverse()
-                    .Aggregate(new StringBuilder(), (fullPath, part) => fullPath.Append($"{part}\\"));
+                    .Aggregate(new StringBuilder(), (fullPath, part) => fullPath.Append($"{part}{Path.DirectorySeparatorChar}"));
 
                 fullPath.Append(entry.FullName);
                 yield return fullPath.ToString();
